@@ -153,6 +153,9 @@ span.inactive_cls {
 .selected_css {
     border: 2px dotted #000 !important;
 }
+.db_selected_css {
+    border: 2px dotted #000 !important;
+}
 span.absense_msg {
     position: relative;
     float: right;

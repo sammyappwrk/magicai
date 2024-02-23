@@ -26,7 +26,7 @@
         $add_selected = '';
         $show_msg = '';
         if($val['content'] != '') {
-          $add_selected = 'selected_css';
+          $add_selected = 'db_selected_css';
           $show_msg = 'Absense';
         }
         @endphp
