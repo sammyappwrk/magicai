@@ -69,7 +69,7 @@
                 return false;
             }
            // alert('Message received: ' + message);
-            let selectedtextString = $("#selectedtextString").val();
+            var selectedtextString = $("#selectedtextString").val();
             let prev_id = $("#prev_id").val();
             $.ajax({
                type:'POST',
@@ -81,7 +81,14 @@
                 $(".success_msg").html('Script added successfully');
                setTimeout(function() {
                 hidePopup();
-                location.reload();
+                let selected_parse = JSON.parse(selectedtextString);
+                $(".selectable").each(function() {
+                    let html = $(this).text();
+                    let validate = selected_parse.find( (data) =>  data.trim() == html.trim());
+                    if(validate) {
+                        $(this).addClass('selected_css');
+                    }
+                })
                }, 2000);
                }
             });
