@@ -28,9 +28,11 @@
         var isDragging = false;
 
         $('.selectable').on('mousedown', function(event) {
+            $("#selectedtextString").val('');
             // Mark the start of selection
             isDragging = true;
             $(this).addClass('selected');
+            $(this).addClass('selected_css');
 
             // Add mousemove event listener to track drag
             $('.selectable').on('mousemove', function(event) {
@@ -44,6 +46,13 @@
             $('.selectable').off('mousemove');
             $("#prev_content").text('');
             $("#prev_id").val(0);
+            var selectedValues = $('.selected').map(function() {
+                return $(this).text();
+            }).get();
+            let selectedtextString = JSON.stringify(selectedValues);
+            $("#selectedtextString").val(selectedtextString);
+            $(this).removeClass('selected');
+            $(this).removeClass('selected_css');
             showPopup(event.pageX, event.pageY); // Show popup at mouse position
         });
 
@@ -60,12 +69,8 @@
                 return false;
             }
            // alert('Message received: ' + message);
-            var selectedValues = $('.selected').map(function() {
-                return $(this).text();
-            }).get();
-            let selectedtextString = JSON.stringify(selectedValues);
+            let selectedtextString = $("#selectedtextString").val();
             let prev_id = $("#prev_id").val();
-            console.log('Selected Values:', selectedValues);
             $.ajax({
                type:'POST',
                url:'/add-google-absense-list',
@@ -76,6 +81,7 @@
                 $(".success_msg").html('Script added successfully');
                setTimeout(function() {
                 hidePopup();
+                location.reload();
                }, 2000);
                }
             });
@@ -127,7 +133,7 @@
 .prev_content {
     color : #000;
 }
-.selected {
+.selected_css {
     border: 2px dotted #000 !important;
 }
 span.absense_msg {

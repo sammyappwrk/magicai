@@ -20,7 +20,7 @@
         $add_selected = '';
         $show_msg = '';
         if($val['content'] != '') {
-          $add_selected = 'selected';
+          $add_selected = 'selected_css';
           $show_msg = 'Absense';
         }
         @endphp
@@ -40,6 +40,7 @@
 <div class="popup" id="messagePopup">
   <div id="prev_content" class="prev_content"></div>
   <input type="hidden"  id="prev_id">
+  <input type="hidden" id="selectedtextString">
     <textarea id="messageInput" placeholder="Enter your message"></textarea>
     <button id="submitButton" class="submit">Submit</button> <button id="closeButton" class="close">Close</button>
     <span class="error_msg"></span>
