@@ -4,6 +4,7 @@
 <section class="site-section flex items-center justify-center min-h-screen text-center text-white relative py-52 max-md:pb-16 max-md:pt-48 overflow-hidden" id="banner">
 	
 	<div class="container relative">
+    <h3 class="float-left">Google Absense List</h3>
    <table class="table">
     <thead>
       <tr>
