@@ -131,6 +131,16 @@
 </script>
 
 <style>
+    span.active_cls {
+    background-color: green;
+    padding: 10px;
+    color: #fff;
+}
+span.inactive_cls {
+    background-color: red;
+    padding: 10px;
+    color: #fff;
+}
     .error_cls {
     color: red;
 }

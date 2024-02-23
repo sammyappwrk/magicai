@@ -17,6 +17,12 @@
         @if(null != $absense_arr && count($absense_arr) > 0)
         @foreach($absense_arr as $val) 
         @php
+        $show_status = 'Active';
+        $show_status_color = 'active_cls';
+        if($val['status'] == 0) {
+          $show_status = 'Deactivited';
+          $show_status_color = 'inactive_cls';
+        }
         $add_selected = '';
         $show_msg = '';
         if($val['content'] != '') {
@@ -26,7 +32,7 @@
         @endphp
         <tr id="id_{{ $val['id']}}">
         <td class="selectable absense_msg {{$add_selected}}" data-id="{{$val['id']}}">{{ $val['section_name']}}</td>
-        <td>{{ $val['status']}}</td>
+        <td><span class="{{ $show_status_color }}">{{ $show_status}}</span></td>
         <td>{{ $val['created_at']}}</td>
         </tr>
         @endforeach
