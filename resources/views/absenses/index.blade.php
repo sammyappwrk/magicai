@@ -34,7 +34,7 @@
         <tr id="id_{{ $val['id']}}">
         <td class="selectable absense_msg {{$add_selected}}" data-id="{{$val['id']}}">{{ $val['section_name']}}</td>
         <td><span class="{{ $show_status_color }}">{{ $show_status}}</span></td>
-        <td>{{ $val['created_at']}}</td>
+        <td>{{ $val['updated_at']}}</td>
         </tr>
         @endforeach
         @else
